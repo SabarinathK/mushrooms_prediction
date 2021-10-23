@@ -1,0 +1,24 @@
+base:
+  project: mushrooms_prediction
+  random_state: 42
+  target_col: class
+
+data_source:
+  source: data_given/mushrooms.csv
+
+load_data:
+  raw_dataset_csv: data/raw/musrooms.csv
+
+split_data:
+  train_path: data/processed/train_mushromoms.csv
+  test_path: data/processed/test_mushrooms.csv
+  text_size: 0.3
+
+estimator:
+  svc:
+   
+
+model_dir: saved_models
+     
+
+
