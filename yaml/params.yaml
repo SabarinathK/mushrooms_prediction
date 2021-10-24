@@ -7,7 +7,7 @@ data_source:
   source: data_given/mushrooms.csv
 
 load_data:
-  raw_dataset_csv: data/raw/musrooms.csv
+  raw_dataset_csv: data/raw/musrooms.csv 
 
 split_data:
   train_path: data/processed/train_mushromoms.csv
