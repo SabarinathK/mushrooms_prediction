@@ -1,0 +1,1 @@
+{"metric": "              precision    recall  f1-score   support\n\n           0       0.52      1.00      0.68      1257\n           1       0.00      0.00      0.00      1181\n\n    accuracy                           0.52      2438\n   macro avg       0.26      0.50      0.34      2438\nweighted avg       0.27      0.52      0.35      2438\n"}

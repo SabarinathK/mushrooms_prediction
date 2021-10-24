@@ -1,0 +1,30 @@
+base:
+  project: mushrooms_prediction
+  random_state: 42
+  target_col: class
+
+data_source:
+  source: data_given/mushrooms.csv
+
+split_data:
+  train_path: data/processed/train_mushrooms.csv
+  test_path: data/processed/test_mushrooms.csv
+  text_size: 0.3
+
+encoder:
+  train_path: data/encoder/train_encoded_mushrooms.csv
+  test_path: data/encoder/test_encoded_mushrooms.csv
+
+estimator:
+  SVC:
+    params:
+      cache_size: 200
+      degree: 3
+model_dir: models
+
+reports:
+  params: reports/params.json
+  scores: reports/scores.json
+     
+
+
