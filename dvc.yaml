@@ -30,4 +30,4 @@ stages:
     - reports/params.json:
         cache: false
     outs:
-    - models/model.joblib
+    - models/model.pkl

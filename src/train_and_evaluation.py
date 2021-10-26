@@ -1,17 +1,19 @@
 # load the train and test
 # train algorithm
 # save the metrices, params
-
 import os
 import pandas as pd
 from sklearn.metrics import classification_report
 from sklearn.svm import SVC
-from urllib.parse import urlparse
-from get_data import read_params
 import argparse
 import json
 import joblib
+import yaml
 
+def read_params(config_path):
+    with open(config_path) as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
 
 def train_and_evaluate(config_path):
     config = read_params(config_path)
@@ -22,7 +24,6 @@ def train_and_evaluate(config_path):
     cache_size=config["estimator"]["SVC"]["params"]['cache_size']
     degree=config["estimator"]["SVC"]["params"]["degree"]
     target= config["base"]["target_col"]
-    model_dir=config["model_dir"]
 
 
     train=pd.read_csv(train_data_path)
@@ -68,12 +69,8 @@ def train_and_evaluate(config_path):
         json.dump(params,f)
 #####################################################
 
+    joblib.dump(model,open("models/model.pkl", 'wb'))
 
-    os.makedirs(model_dir, exist_ok=True)
-    model_path = os.path.join(model_dir, "model.joblib")
-
-    joblib.dump(model, model_path)
-    
 if __name__ =="__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config", default="params.yaml")

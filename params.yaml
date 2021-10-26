@@ -20,11 +20,13 @@ estimator:
     params:
       cache_size: 200
       degree: 3
+
 model_dir: models
 
 reports:
   params: reports/params.json
   scores: reports/scores.json
-     
 
-
+model_monitor:
+  target_col_name: target
+  monitor_dashboard_html: reports/data_and_target_drift_dashboard.html

@@ -4,24 +4,24 @@ stages:
     cmd: python src/split_data.py --config=params.yaml
     deps:
     - path: data_given/mushrooms.csv
-      md5: 26180cb6636e8d61cf67d7fdda403415
-      size: 624744
+      md5: 20e36f0bcc0fec359eb394ee947237dd
+      size: 374003
     - path: src/split_data.py
       md5: d653df271b8c380541bf28d33aec2ce8
       size: 1040
     outs:
     - path: data/processed/test_mushrooms.csv
-      md5: b738ffd42109b4b78278a2459fa338fd
-      size: 187690
+      md5: 82ab1901f6cd211bdb4cda560c7326af
+      size: 114887
     - path: data/processed/train_mushrooms.csv
-      md5: ba84734ea2436b9f7167df8cd50269e8
-      size: 437380
+      md5: ad4806873048377e171c3bd7909b9d49
+      size: 267543
   data_source:
     cmd: python src/get_data.py --config=params.yaml
     deps:
     - path: data_given/mushrooms.csv
-      md5: 26180cb6636e8d61cf67d7fdda403415
-      size: 624744
+      md5: 20e36f0bcc0fec359eb394ee947237dd
+      size: 374003
     - path: src/get_data.py
       md5: b9accc176cd5c670f4f7700741faaca3
       size: 648
@@ -29,25 +29,25 @@ stages:
     cmd: python src/train_and_evaluation.py --config=params.yaml
     deps:
     - path: data/processed/test_mushrooms.csv
-      md5: b738ffd42109b4b78278a2459fa338fd
-      size: 187690
+      md5: 82ab1901f6cd211bdb4cda560c7326af
+      size: 114887
     - path: data/processed/train_mushrooms.csv
-      md5: ba84734ea2436b9f7167df8cd50269e8
-      size: 437380
+      md5: ad4806873048377e171c3bd7909b9d49
+      size: 267543
     - path: src/train_and_evaluation.py
-      md5: 49b2e695939c07d0348a51a3ef2dc1d7
-      size: 2246
+      md5: 245ea8f11ddd5b0aea5ea8eb4b49329a
+      size: 2199
     params:
       params.yaml:
         estimator.SVC.params.cache_size: 200
         estimator.SVC.params.degree: 3
     outs:
-    - path: models/model.joblib
-      md5: bceace7a845429f173014222f9d258dc
-      size: 567685
+    - path: models/model.pkl
+      md5: 05fd4d9077705d2efb5baba70300b9ac
+      size: 149701
     - path: reports/params.json
       md5: 788c1bf82e2e8f77da2582d1fff0d879
       size: 32
     - path: reports/scores.json
-      md5: a793242dc7f097fa292fa9330cb32895
+      md5: 6b7164fe2dfc2cf7b87c11eeb702864a
       size: 348
