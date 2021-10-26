@@ -5,8 +5,18 @@ import os
 from re import split
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from get_data import read_params
 import argparse
+import yaml
+import logging
+
+# configuring logging operations
+logging.basicConfig(filename='loggs.log', level=logging.INFO,
+                    format='%(levelname)s:%(asctime)s:%(message)s')
+
+def read_params(config_path):
+    with open(config_path) as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
 
 def split_and_saved_data(config_path):
     config = read_params(config_path)
@@ -17,6 +27,7 @@ def split_and_saved_data(config_path):
     random_state=config["base"]["random_state"]
 
     df=pd.read_csv(source_data_path)
+    df=df.drop(["_id","Unnamed: 0"],axis=1)
     train,test=train_test_split(
         df,
         test_size=split_ratio,
@@ -24,6 +35,7 @@ def split_and_saved_data(config_path):
         )
     train.to_csv(train_data_path,index=False)
     test.to_csv(test_data_path,index=False)
+    logging.info('Data split was doned and saved')
 
 
 if __name__ =="__main__":

@@ -9,6 +9,11 @@ import argparse
 import json
 import joblib
 import yaml
+import logging
+
+# configuring logging operations
+logging.basicConfig(filename='loggs.log', level=logging.INFO,
+                    format='%(levelname)s:%(asctime)s:%(message)s')
 
 def read_params(config_path):
     with open(config_path) as yaml_file:
@@ -34,21 +39,18 @@ def train_and_evaluate(config_path):
 
     X_train=train.drop(target, axis=1)
     X_test=test.drop(target, axis=1)
-
+    logging.info('feature and label was selected ')
 
     model = SVC(
         cache_size=cache_size, 
         degree=degree, 
         random_state=random_state)
     model.fit(X_train, y_train)
+    logging.info('model "SVC "selected and fitted')
 
     predicted_qualities = model.predict(X_test)
 
-    report= classification_report(y_test, predicted_qualities)
-
-    print("SVC model (cache_size=%f, degree=%f):" % (cache_size, degree))
-    print("  metric: %s" % report)
-
+    report= classification_report(y_test, predicted_qualities,zero_division=0)
 
 #####################################################
     scores_file = config["reports"]["scores"]
@@ -70,6 +72,7 @@ def train_and_evaluate(config_path):
 #####################################################
 
     joblib.dump(model,open("models/model.pkl", 'wb'))
+    logging.info('model "SVC "saved ')
 
 if __name__ =="__main__":
     args = argparse.ArgumentParser()

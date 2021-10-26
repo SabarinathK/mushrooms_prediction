@@ -19,7 +19,6 @@ class app_frame:
         return config
 
     def data_clean(df):
-        df=df.drop(['class'],axis=1)
         encoder = LabelEncoder()
         for column in range(len(df.columns)):
             df[df.columns[column]]= encoder.fit_transform(df[df.columns[column]])

@@ -3,6 +3,9 @@ base:
   random_state: 42
   target_col: class
 
+data_fetch:
+  data_pull: data_given/mushrooms.csv
+
 data_source:
   source: data_given/mushrooms.csv
 
