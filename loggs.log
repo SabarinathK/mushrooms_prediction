@@ -1,0 +1,22 @@
+INFO:2021-10-26 15:32:28,363:data was read sucessfully
+INFO:2021-10-26 15:32:37,474:Data split was doned and saved
+INFO:2021-10-26 15:33:00,591:Encoding was done for train data 
+INFO:2021-10-26 15:33:00,819:Encoding was done for test data 
+INFO:2021-10-26 15:33:07,353:feature and label was selected 
+INFO:2021-10-26 15:33:07,998:model "SVC "selected and fitted
+INFO:2021-10-26 15:33:08,571:model "SVC "saved 
+INFO:2021-10-26 15:37:31,920:feature and label was selected 
+INFO:2021-10-26 15:37:32,598:model "SVC "selected and fitted
+INFO:2021-10-26 15:37:33,158:model "SVC "saved 
+INFO:2021-10-26 15:50:01,519:Data split was doned and saved
+INFO:2021-10-26 15:50:35,814:feature and label was selected 
+INFO:2021-10-26 15:50:36,510:model "SVC "selected and fitted
+INFO:2021-10-26 15:50:37,073:model "SVC "saved 
+INFO:2021-10-26 15:51:11,339:feature and label was selected 
+INFO:2021-10-26 15:51:11,997:model "SVC "selected and fitted
+INFO:2021-10-26 15:51:12,541:model "SVC "saved 
+INFO:2021-10-26 15:52:20,021:Encoding was done for train data 
+INFO:2021-10-26 15:52:20,255:Encoding was done for test data 
+INFO:2021-10-26 15:52:31,261:feature and label was selected 
+INFO:2021-10-26 15:52:31,413:model "SVC "selected and fitted
+INFO:2021-10-26 15:52:31,578:model "SVC "saved 
