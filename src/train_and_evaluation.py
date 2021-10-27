@@ -12,7 +12,7 @@ import yaml
 import logging
 
 # configuring logging operations
-logging.basicConfig(filename='loggs.log', level=logging.INFO,
+logging.basicConfig(filename='Logs/loggs.log', level=logging.INFO,
                     format='%(levelname)s:%(asctime)s:%(message)s')
 
 def read_params(config_path):
@@ -24,7 +24,6 @@ def train_and_evaluate(config_path):
     config = read_params(config_path)
     train_data_path=config["encoder"]["train_path"]
     test_data_path=config["encoder"]["test_path"]
-    model_path=config["model_dir"]
     random_state=config["base"]["random_state"]
     cache_size=config["estimator"]["SVC"]["params"]['cache_size']
     degree=config["estimator"]["SVC"]["params"]["degree"]
@@ -39,14 +38,14 @@ def train_and_evaluate(config_path):
 
     X_train=train.drop(target, axis=1)
     X_test=test.drop(target, axis=1)
-    logging.info('feature and label was selected ')
+    logging.info('features and label was selected ')
 
     model = SVC(
         cache_size=cache_size, 
         degree=degree, 
         random_state=random_state)
     model.fit(X_train, y_train)
-    logging.info('model "SVC "selected and fitted')
+    logging.info('model "SVC "selected and trained')
 
     predicted_qualities = model.predict(X_test)
 
@@ -62,6 +61,8 @@ def train_and_evaluate(config_path):
         }
 
         json.dump(scores,f)
+    logging.info('metrics report was saved')
+
 
     with open(params_file, "w") as f:
         params = {
@@ -69,10 +70,11 @@ def train_and_evaluate(config_path):
             "degree": degree,
         }
         json.dump(params,f)
+    logging.info('model parameter was saved')
 #####################################################
 
     joblib.dump(model,open("models/model.pkl", 'wb'))
-    logging.info('model "SVC "saved ')
+    logging.info('model,pkl "SVC " was done ')
 
 if __name__ =="__main__":
     args = argparse.ArgumentParser()

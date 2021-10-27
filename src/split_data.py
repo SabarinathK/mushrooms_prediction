@@ -28,6 +28,7 @@ def split_and_saved_data(config_path):
 
     df=pd.read_csv(source_data_path)
     df=df.drop(["_id","Unnamed: 0"],axis=1)
+    logging.info('"_id","Unnamed: 0" columns are dropped')
     train,test=train_test_split(
         df,
         test_size=split_ratio,

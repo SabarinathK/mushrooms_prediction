@@ -3,11 +3,17 @@ import pandas as pd
 import yaml
 import pymongo
 import argparse
+import logging
+
+# configuring logging operations
+logging.basicConfig(filename='Logs/loggs.log', level=logging.INFO,
+                    format='%(levelname)s:%(asctime)s:%(message)s')
 
 def read_params(config_path):
     with open(config_path) as yaml_file:
         config = yaml.safe_load(yaml_file)
     return config
+
 def data_pull(config_path):
     config = read_params(config_path)
     data_path = config["data_fetch"]["data_pull"]
@@ -17,6 +23,8 @@ def data_pull(config_path):
     records = mycollection.find()
     dataframe = pd.DataFrame(records)
     dataframe.to_csv(data_path)
+
+    logging.info('Data was collecter from mongodb ')
 
 if __name__ =="__main__":
     args = argparse.ArgumentParser()

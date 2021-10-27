@@ -4,7 +4,7 @@ from app_frame import app_frame
 import joblib
 import base64
 
-st.set_page_config(page_title='Mushroom Prediction')
+st.set_page_config(page_title='Mushrooms Prediction')
 st.title('Mushroom Prediction 🍄')
 st.subheader('Lets Find our Edible Mushrooms here !!! 🤤')
 
@@ -25,3 +25,11 @@ if download:
   b64 = base64.b64encode(csv.encode()).decode()  # some strings
   linko= f'<a href="data:file/csv;base64,{b64}" download="mushrooms_prediction.csv">Download csv file</a>'
   st.markdown(linko, unsafe_allow_html=True)
+  st.text('--------------------Created By : Sabarinath K --------------------😊')
+
+
+
+
+
+
+
