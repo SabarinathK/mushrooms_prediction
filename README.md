@@ -58,21 +58,27 @@ Screenshots
 High level design
 -------------------------
 URL : https://drive.google.com/file/d/1N8T-jlg5-ZyCgc3QWyFERe9TFpcwvPd7/view?usp=sharing
+
 Low level design
 -------------------------
 URL :https://drive.google.com/file/d/1u7reWs63lQq2Bx9b9ojE_oeCwK4UR4-4/view?usp=sharing
+
 Architecture
 -------------------------
 URL :https://drive.google.com/file/d/15FiOgBy9O9kp2dF1uXWHfgXiNlvGUdVd/view?usp=sharing
+
 Detailed project report
 -------------------------
 URL :https://drive.google.com/file/d/1M9vuP95z0SMG180xEbfZhOiMOLMWQxmm/view?usp=sharing
+
 Wireframe document
 -------------------------
 URL :https://drive.google.com/file/d/1xRCR-IUoTVoSX30oqZOyHpPVo75W33Up/view?usp=sharing
+
 Demo video
 -------------------------
 URL : https://youtu.be/2rzbDF_cc88
+
 Author
 -------------------------
  - Sabarinath K [Linkedin](https://www.linkedin.com/in/sabarinath-k-bio/)
